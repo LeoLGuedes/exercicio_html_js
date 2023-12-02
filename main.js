@@ -15,26 +15,29 @@ form.addEventListener('submit', function(e){
     (TAXA DE ACERTO DA QUESTÃO: 0,2%)`
 
     const mensagemErro = `Tente novamente! Seu número B (<b>${numeroB.value}</b>) é menor que seu número A (<b>${numeroA.value}</b>) `
+    const containerMensagemErro = document.querySelector('.error-menssage');
+    const containerMensagemSucesso = document.querySelector('.success-menssage');
     
     formEValido = validaNumero(numeroB.value, numeroA.value)
     if (formEValido) {
-        const containerMensagemSucesso = document.querySelector('.success-menssage');
         containerMensagemSucesso.innerHTML = mensagemSucesso;
         containerMensagemSucesso.style.display = 'block';
 
         numeroB.value = '';
         numeroA.value = '';
 
-        document.getElementById('.error-menssage').innerHTML('hidden');
+        containerMensagemErro.style.display = 'none';
 
     } else {
-        const containerMensagemErro = document.querySelector('.error-menssage');
         containerMensagemErro.innerHTML = mensagemErro;
         containerMensagemErro.style.display = 'block';
         
         numeroB.value = '';
         numeroA.value = '';
+        containerMensagemSucesso.style.display = 'none';
     }
+
+
 })
 
 
